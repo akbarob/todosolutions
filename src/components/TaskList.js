@@ -14,7 +14,7 @@ export default function TaskList() {
       >
         Task List
       </h1>
-      <div className="flex flex-col gap-6 md:flex-row  justify-center md:justify-between items-center">
+      <div className="flex flex-col gap-6 md:flex-row  justify-center md:justify-between items-start">
         <div className="w-[90%] bg-indigo-700 p-2 rounded-lg">
           <h2 className="p-4 font-bold text-xl">Active task(s)</h2>
           {Active?.map((item) => (

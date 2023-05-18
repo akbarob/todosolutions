@@ -2,6 +2,7 @@ import {
   akbar,
   removeTask,
   setCompleted,
+  setDelete,
   setEdit,
   setEditTask,
   setEditValue,
@@ -18,13 +19,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function SingleTask({ task, id, undo, origin, edit }) {
   const inputRef = useRef(null);
-
   const Text = useSelector((state) => state.todo.editText);
-
   const dispatch = useDispatch();
+
   function handleDelete(id, origin) {
     // dispatch(removeTask(id, origin));
-    dispatch(setJett({ id, origin }));
+    dispatch(setDelete({ id, origin }));
     console.log(origin);
   }
   function handleUndo() {
@@ -32,7 +32,7 @@ export default function SingleTask({ task, id, undo, origin, edit }) {
     dispatch(undoTask({ id, task, undo: false, origin: "active", edit }));
   }
 
-  function handleCompleted(id, task) {
+  function handleCompleted(id, task, edit) {
     console.log("adding");
     dispatch(setCompleted({ id, task, undo: true, origin: "complete", edit }));
   }
@@ -82,7 +82,10 @@ export default function SingleTask({ task, id, undo, origin, edit }) {
         <button className="icon" onClick={() => handleDelete(id, origin)}>
           <AiFillDelete />
         </button>
-        <button className="icon" onClick={() => handleCompleted(id, task)}>
+        <button
+          className="icon"
+          onClick={() => handleCompleted(id, task, edit)}
+        >
           <FiCheckCircle />
         </button>
         {undo && (
