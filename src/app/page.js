@@ -11,8 +11,8 @@ export default function Home() {
   console.log("completed:", CompletedList);
   return (
     <main className="m-6 lg:px-20">
-      <header className="text-center font-bold mb-4 text-indigo-500">
-        Todo App{" "}
+      <header className="text-center text-xl font-bold mb-4 text-indigo-500">
+        Todo App
       </header>
       <div>
         <Input />
