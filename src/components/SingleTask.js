@@ -41,7 +41,7 @@ export default function SingleTask({ task, id, undo, origin, edit }) {
   // }
   return (
     <div
-      className="my-2 w-full rounded-lg bg-green-600 h-10 flex justify-between items-center
+      className="my-2 w-full rounded-lg bg-green-600 h-12 flex justify-between items-center
      px-2"
     >
       {edit ? (
@@ -66,31 +66,31 @@ export default function SingleTask({ task, id, undo, origin, edit }) {
       )}
 
       <div></div>
-      <div className="flex flex-row justify-end items-center gap-x-2">
+      <div className="flex flex-row justify-end items-center gap-x-3">
         {origin === "active" && (
           <button
-            className="icon"
+            className="icon p-1"
             onClick={() => {
               dispatch(setEdit({ id, edit }));
               dispatch(setText(task));
             }}
           >
-            <AiFillEdit />
+            <AiFillEdit size={20} />
           </button>
         )}
 
-        <button className="icon" onClick={() => handleDelete(id, origin)}>
-          <AiFillDelete />
+        <button className="icon " onClick={() => handleDelete(id, origin)}>
+          <AiFillDelete size={20} />
         </button>
         <button
-          className="icon"
+          className="icon "
           onClick={() => handleCompleted(id, task, edit)}
         >
-          <FiCheckCircle />
+          <FiCheckCircle size={20} />
         </button>
         {undo && (
-          <button className="icon" onClick={() => handleUndo(id, task, undo)}>
-            <FcUndo />
+          <button className="icon " onClick={() => handleUndo(id, task, undo)}>
+            <FcUndo size={20} />
           </button>
         )}
       </div>
